@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">HabitTracker</string>
     <string name="loading">Loading ...</string>
+    <string name="welcome">Welcome to habit tracker</string>
+    <string name="open"><![CDATA[>]]></string>
+    <string name="close"><![CDATA[<]]></string>
 </resources>

@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/Loading"
         android:layout_width="193dp"
         android:layout_height="104dp"
         android:text="@string/loading"

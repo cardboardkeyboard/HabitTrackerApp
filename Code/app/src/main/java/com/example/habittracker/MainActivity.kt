@@ -24,8 +24,6 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main)
 
         Handler()   .postDelayed({
-            Log.d("TAG", "Debug message")
-
             val intent = Intent(this@MainActivity, StartScreen::class.java)
             startActivity(intent)
             finish()
