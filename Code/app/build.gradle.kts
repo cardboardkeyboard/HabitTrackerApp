@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.habittracker"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -39,6 +39,7 @@ android {
     buildFeatures {
         compose = true
     }
+
 }
 
 dependencies {
@@ -63,6 +64,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
     val room_version = "2.7.2"
 
     implementation("androidx.room:room-runtime:$room_version")

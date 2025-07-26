@@ -2,14 +2,23 @@ package com.example.habittracker.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
-import java.sql.Date
+import java.time.LocalDate
+import java.util.Date
 
-@Entity
+@Entity(
+    indices = [Index(value = ["name","timeTableType"], unique = true)]
+)
 data class File(
-    @PrimaryKey val id: Int,
-    @ColumnInfo(name = "timeTable") val timeTable: TimeTable,
-    @ColumnInfo(name = "date") val date: Date,
-    @ColumnInfo(name = "createdAt") val createdAt: Date = Date(System.currentTimeMillis()),
-    @ColumnInfo(name = "parentFolderId") val parentFolderId: Int,
-    )
+    @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "name") var name: String,
+    @ColumnInfo(name = "timeTableType") val type: String,
+    @ColumnInfo(name = "createdAt") val createdAt: LocalDate = LocalDate.now(),
+    @ColumnInfo(name = "parentFolderId") var parentFolderId: Int?,
+    ) {
+    constructor(id: Int,name: String,type: String,parentFolderId: Int?) : this(id,name,type,
+        LocalDate.now(),parentFolderId)
+    constructor(name: String,type: String,parentFolderId: Int?) : this(0,name,type,
+        LocalDate.now(),parentFolderId)
+}
